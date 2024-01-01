@@ -1,0 +1,9 @@
+.container-fluid{
+    padding: 5px 100px 5px 100px!important;
+}
+.offcanvas-size-sm {
+    --bs-offcanvas-width: min(95vw, 250px) !important;
+}
+.nav-link{
+    margin-left: 1.2em;
+}

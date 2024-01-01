@@ -1,7 +1,3 @@
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-
 import "./Login.css";
 import { useState } from "react";
 const Login = () => {
@@ -26,8 +22,8 @@ const Login = () => {
   };
   return (
     <>
-      <div class=" col-10 col-sm-7 col-md-6  login rounded-4 shadow-lg bg-body ">
-        <form class="form-example " action="" method="post">
+      <div className=" col-10 col-sm-7 col-md-6  login rounded-4 shadow-lg bg-body ">
+        <form className="form-example " action="" method="post">
           <h1 className="mb-4 text-center">
             {isLogin ? "Đăng nhập" : "Đăng ký"}
           </h1>
@@ -35,13 +31,13 @@ const Login = () => {
           <div class="form-group mb-3">
             <input
               type="text"
-              class="form-control username"
+              className="form-control username"
               id="username"
               placeholder="Tên tài khoản..."
               name="username"
             />
           </div>
-          <div class="form-group mb-3">
+          <div className="form-group mb-3">
             <input
               type="password"
               class="form-control password"
@@ -54,7 +50,7 @@ const Login = () => {
 
           <button
             type="submit"
-            class=" form-control btn btn-primary btn-sm mb-1"
+            className=" form-control btn btn-primary btn-sm mb-1"
           >
             {isLogin ? "Đăng nhập" : "Đăng ký"}
           </button>
