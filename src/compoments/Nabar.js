@@ -1,11 +1,11 @@
-import "./Navbar.css";
+import "./Navbar.scss";
 import logo from "./../WhiteCut.png";
 import { Col, Container, Row } from "react-bootstrap";
 import ListTopAudio from "./ListTopAudi";
 
 const naBar = (props) => {
   return (
-    <>
+    <div className="Nabar">
       <div>
         <nav className="navbar navbar-expand-lg bg-secondary fixed-top">
           <div className="container-fluid">
@@ -140,14 +140,13 @@ const naBar = (props) => {
       >
         <Container>
           <Row>
-            <Col md={8} lg={9}>
+            <Col md={7} lg={8} xl={9}>
               {props.children}
-              <hr />
             </Col>
 
-            <Col md={4} lg={3}>
-              <Row>
-                <Col>Top ngay</Col>
+            <Col md={5} lg={4} xl={3} className="bo">
+              <Row className="rowc">
+                <Col className="activer">Top ngay</Col>
                 <Col>Top thang</Col>
                 <Col>Top nam</Col>
               </Row>
@@ -159,7 +158,7 @@ const naBar = (props) => {
           </Row>
         </Container>
       </div>
-    </>
+    </div>
   );
 };
 export default naBar;

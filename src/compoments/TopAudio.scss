@@ -1,0 +1,26 @@
+.TopAudio{
+    .thumb{
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        float: left;
+        margin-right: 10px;
+    
+        img{
+            max-width: 100%;
+        }
+    }
+    .title{
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .chapter{
+        font-size: 14px;
+        padding-top: 5px;
+    }
+}

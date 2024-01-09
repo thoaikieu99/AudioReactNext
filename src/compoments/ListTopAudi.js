@@ -1,5 +1,5 @@
 import TopAudio from "./TopAudio";
-import "./list.scss";
+import "./ListTopAudi.scss";
 const list = [
   {
     id: 1,
@@ -101,19 +101,16 @@ const list = [
 const ListTopAudio = () => {
   const ListAudio = list.map((value) => {
     return (
-      <div
-        className="col-6 col-xs-4 col-sm-3 col-md-2 cardAudio"
-        key={value.id}
-      >
-        <TopAudio slug={value.slug} title={value.title} />
-      </div>
+      <li className="aaa" key={value.id}>
+        <TopAudio title={value.title} sotap={value.sotap} />
+      </li>
     );
   });
 
   return (
-    <>
-      <div className="row">{ListAudio}</div>
-    </>
+    <div className="ListTopAudi">
+      <ul className="ultop">{ListAudio}</ul>
+    </div>
   );
 };
 export default ListTopAudio;

@@ -1,13 +1,28 @@
-import "./Audio.scss";
+import "./TopAudio.scss";
 const TopAudio = (props) => {
-  const ss = `abbc.com/${props.slug}`;
   return (
-    <a href={ss} title={props.title}>
-      <img src="dai-quan-gia-la-ma-hoang.jpg" alt={props.title} />
-      <div className="divTile">
-        <h6 itemProp="name">{props.title}</h6>
-      </div>
-    </a>
+    <div className="TopAudio">
+      <a
+        className="thumb"
+        title={props.title}
+        href="https://nettruyentr.com/truyen-tranh/cuoc-song-thuong-ngay/chapter-105/1164151"
+      >
+        <img
+          alt={props.title}
+          src="https://nettruyentr.com/images/comics/cuoc-song-thuong-ngay.jpg"
+        />
+      </a>
+      <h3 className="title">
+        <a href="https://nettruyentr.com/truyen-tranh/cuoc-song-thuong-ngay/chapter-105/1164151">
+          {props.title}
+        </a>
+      </h3>
+      <p className="chapter">
+        <a href="https://nettruyentr.com/truyen-tranh/cuoc-song-thuong-ngay/chapter-105/1164151">
+          {props.sotap} <i className="fa fa-angle-right"></i>
+        </a>
+      </p>
+    </div>
   );
 };
 export default TopAudio;

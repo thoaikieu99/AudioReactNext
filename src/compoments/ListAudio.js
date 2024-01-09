@@ -1,5 +1,5 @@
 import Audio from "./Audio";
-import "./list.scss";
+import "./ListAudio.scss";
 
 const ListAudio = (props) => {
   const ListAudio = props.onList.map((value) => {
@@ -14,9 +14,9 @@ const ListAudio = (props) => {
   });
 
   return (
-    <>
+    <div className="ListAudio">
       <div className="row">{ListAudio}</div>
-    </>
+    </div>
   );
 };
 export default ListAudio;
