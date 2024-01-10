@@ -1,0 +1,44 @@
+.theLoai{
+    left: -160px!important;
+    li{
+                list-style: none;
+                
+    }
+    ul{
+        padding-left: 0rem;
+    }
+    
+    
+    .tb{
+        font-size: 14px;
+        text-align: left;
+        background-color: #fff;
+        width: 100%;
+        padding: 5px 0;padding-left: 15px;
+
+        a{
+            color: #333;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            line-height: 32px;
+            padding: 0 10px;
+            
+            white-space: nowrap;            
+        }
+            
+    }
+    @media only screen and (min-width: 992px) {
+        .tb { 
+        
+            width: 600px;
+            
+        }
+    }
+    
+    .row {
+        margin-left:0!important;
+        margin-right:0!important;
+    }
+        
+}
+

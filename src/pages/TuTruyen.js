@@ -1,6 +1,6 @@
 import ListAudio from "../compoments/audio/ListAudio";
 
-const Home = () => {
+const TuTruyen = () => {
   const list = [
     {
       id: 1,
@@ -103,11 +103,11 @@ const Home = () => {
   return (
     <>
       <div className="relative">
-        <h3 className="page-title">Truyện mới cập nhật</h3>
+        <h3 className="page-title">Tu truyen</h3>
       </div>
       <ListAudio onList={list} />
     </>
   );
 };
 
-export default Home;
+export default TuTruyen;
