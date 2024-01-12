@@ -12,6 +12,8 @@ import Login from "./pages/Login";
 import NgheNhieu from "./pages/NgheNhieu";
 import TuTruyen from "./pages/TuTruyen";
 import Root from "./pages/Root";
+import MediaAudio from "./pages/MediaAudio";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -30,6 +32,10 @@ function App() {
           element: <NgheNhieu />,
         },
       ],
+    },
+    {
+      path: "nghe-truyen/:slug",
+      element: <MediaAudio />,
     },
   ]);
 

@@ -102,7 +102,7 @@ const ListTopAudio = () => {
   const ListAudio = list.map((value) => {
     return (
       <li className="aaa" key={value.id}>
-        <TopAudio title={value.title} sotap={value.sotap} />
+        <TopAudio title={value.title} slug={value.slug} sotap={value.sotap} />
       </li>
     );
   });

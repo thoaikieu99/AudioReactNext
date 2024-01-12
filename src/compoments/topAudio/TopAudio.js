@@ -1,26 +1,28 @@
+import { NavLink } from "react-router-dom";
 import "./TopAudio.scss";
 const TopAudio = (props) => {
   return (
     <div className="TopAudio">
-      <a
-        className="thumb"
+      <NavLink
+        to={`nghe-truyen/${props.slug}`}
         title={props.title}
-        href="https://nettruyentr.com/truyen-tranh/cuoc-song-thuong-ngay/chapter-105/1164151"
+        className="thumb"
       >
         <img
           alt={props.title}
           src="https://nettruyentr.com/images/comics/cuoc-song-thuong-ngay.jpg"
         />
-      </a>
+      </NavLink>
+
       <h3 className="title">
-        <a href="https://nettruyentr.com/truyen-tranh/cuoc-song-thuong-ngay/chapter-105/1164151">
+        <NavLink to={`nghe-truyen/${props.slug}`} title={props.title}>
           {props.title}
-        </a>
+        </NavLink>
       </h3>
       <p className="chapter">
-        <a href="https://nettruyentr.com/truyen-tranh/cuoc-song-thuong-ngay/chapter-105/1164151">
-          {props.sotap} <i className="fa fa-angle-right"></i>
-        </a>
+        <NavLink to={`nghe-truyen/${props.slug}`} title={props.title}>
+          {props.title}
+        </NavLink>
       </p>
     </div>
   );

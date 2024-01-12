@@ -115,7 +115,11 @@ const NaBar = (props) => {
             </Col>
 
             <Col md={5} lg={4} xl={3} className="bo">
-              <Row className="rowc" onClick={hangeonclick}>
+              <Row
+                className="rowc"
+                onClick={hangeonclick}
+                style={{ cursor: "pointer" }}
+              >
                 <Col
                   name="topNgay"
                   className={actionTop === "topNgay" ? "activer" : ""}

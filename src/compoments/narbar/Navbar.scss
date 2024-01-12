@@ -2,6 +2,7 @@
     .offcanvas { 
     
         --bs-offcanvas-width: 40%!important; 
+        --bs-dropdown-border-width:0;
         
     }
     @media only screen and (max-width: 540px) {
