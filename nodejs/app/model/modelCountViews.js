@@ -18,9 +18,8 @@ const creatModelCountView = (sequelize) => {
     }
   );
   let Audio = sequelize.model("Audio");
-
   Audio.hasMany(CountView, { foreignKey: "audio_id" });
-
+  CountView.belongsTo(Audio, { foreignKey: "audio_id" });
   return CountView;
 };
 module.exports = creatModelCountView;
