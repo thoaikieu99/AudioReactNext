@@ -11,9 +11,9 @@ const creatModelAuCa = (sequelize) => {
   );
   let Audio = sequelize.model("Audio");
   let Categorie = sequelize.model("Categorie");
-  Categorie.hasMany(AuCa, { foreignKey: "categorie_id" });
 
-  Audio.hasMany(AuCa, { foreignKey: "audio_id" });
+  Audio.belongsToMany(Categorie, { through: AuCa, foreignKey: "audio_id" });
+  Categorie.belongsToMany(Audio, { through: AuCa, foreignKey: "categorie_id" });
 
   return AuCa;
 };

@@ -1,30 +1,33 @@
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ListAudio from "../compoments/audio/ListAudio";
-import { getApiNewAudio } from "../services/apiServices";
+import { useEffect, useState } from "react";
+
 import useAxios from "../customHook/useCusAxios";
 
-const Home = () => {
+const TheLoai = () => {
+  const { slug } = useParams();
+
   const [listAudio, setListAudio] = useState();
 
   const { response, loading, error } = useAxios({
     method: "get",
-    url: "/audios/new",
+    url: `categories/${slug}`,
   });
 
   useEffect(() => {
     if (response !== null) {
-      setListAudio(response.data);
+      setListAudio(response);
     }
   }, [response]);
 
   return (
     <>
       <div className="relative">
-        <h3 className="page-title">Truyện mới cập nhật</h3>
+        <h3 className="page-title">{listAudio?.nameTheLoai}</h3>
       </div>
-      <ListAudio onList={listAudio?.rows} />
+      <ListAudio onList={listAudio?.data?.theLoai?.rows} />
     </>
   );
 };
 
-export default Home;
+export default TheLoai;

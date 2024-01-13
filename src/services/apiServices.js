@@ -1,10 +1,13 @@
-import axios from "axios";
+import axios from "../ultils/customAxios";
 
 const getApiNewAudio = () => {
-  return axios.get("http://localhost:4000/api/v1/audios/new");
+  return axios.get("audios/new");
 };
 
 const getApiTheLoai = () => {
-  return axios.get("http://localhost:4000/api/v1/categories/show");
+  return axios.get("categories/show");
 };
-export { getApiNewAudio, getApiTheLoai };
+const getApiListTL = (slug) => {
+  return axios.get(`categories/${slug}`);
+};
+export { getApiNewAudio, getApiTheLoai, getApiListTL };

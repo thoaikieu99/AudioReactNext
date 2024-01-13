@@ -38,20 +38,10 @@ const getAudio = catchAsync(async (req, res, next) => {
 const getNewAudio = catchAsync(async (req, res, next) => {
   let getNew = await Audio.findAndCountAll({
     order: [["date", "ASC"]],
+    attributes: ["slug", "title", "content", "trang_thai", "sotap", "image"],
     limit: 42,
     offset: 42 * 1,
   });
-
-  const ListAudio = getNew.rows.map((value) => {
-    const { id, date, modified, link_audio, metalink, ...rest } =
-      value.dataValues;
-    return rest;
-  });
-
-  const list = {
-    count: getNew.count,
-    ListAudio,
-  };
 
   if (!getNew) {
     return next(new AppError("No user found with that ID", 404));
@@ -59,7 +49,7 @@ const getNewAudio = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: "success",
-    data: list,
+    data: getNew,
   });
 });
 

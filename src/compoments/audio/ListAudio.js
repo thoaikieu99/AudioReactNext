@@ -8,7 +8,7 @@ const ListAudio = (props) => {
         className="col-6 col-xs-4 col-sm-3 col-lg-2 col-md-3 cardAudio"
         key={`audio-${index}`}
       >
-        <Audio slug={value.slug} image={value.image} title={value.title} />
+        <Audio slug={value.slug} image={`${value.image}`} title={value.title} />
       </div>
     );
   });

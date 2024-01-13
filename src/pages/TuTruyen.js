@@ -1,6 +1,9 @@
+import { useParams } from "react-router-dom";
 import ListAudio from "../compoments/audio/ListAudio";
 
 const TuTruyen = () => {
+  console.log(useParams());
+
   const list = [
     {
       id: 1,

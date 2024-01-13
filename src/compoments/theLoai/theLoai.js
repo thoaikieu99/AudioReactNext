@@ -5,75 +5,12 @@ import { useEffect, useState } from "react";
 import { getApiTheLoai } from "../../services/apiServices";
 
 const TheLoai = () => {
-  const list = [
-    {
-      slug: "tien-hiep",
-      title: "Tiên Hiệp",
-    },
-    {
-      slug: "huyen-huyen",
-      title: "Huyền Huyễn",
-    },
-    {
-      slug: "di-gioi",
-      title: "Dị Giới",
-    },
-    {
-      slug: "do-thi",
-      title: "Đô Thị",
-    },
-    {
-      slug: "di-nang",
-      title: "Dị Năng",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-    {
-      slug: "123123",
-      title: "123123",
-    },
-  ];
-
   const [theLoai, setTheLoai] = useState();
 
   useEffect(() => {
     const getTheLoai = async () => {
       const list = await getApiTheLoai();
-      setTheLoai(list.data.data.theLoai);
+      setTheLoai(list.data.theLoai);
     };
     getTheLoai();
   }, []);

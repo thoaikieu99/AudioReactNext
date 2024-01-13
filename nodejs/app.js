@@ -26,7 +26,7 @@ const serve = app.listen(process.env.PORT, () => {
 
 const { sequelize } = require("./app/model");
 
-sequelize.sync({ alter: true });
+sequelize.sync({ force: false });
 
 process.on("unhandledRejection", (err) => {
   console.log(err.name, err.message);
