@@ -1,16 +1,6 @@
 const { Audio } = require("../model");
 const catchAsync = require("../ultils/catchAsync");
 
-const getAll = catchAsync(async (req, res) => {
-  let getAllAudio = await Audio.findAll();
-  res.status(200).json({
-    status: "success",
-    data: {
-      audio: getAllAudio,
-    },
-  });
-});
-
 const getOne = async (slug) => {
   let getOneAudio = await Audio.findOne({
     where: {
@@ -27,7 +17,7 @@ const getAudio = catchAsync(async (req, res, next) => {
     return next(new AppError("No audio found with that slug", 404));
   }
 
-  res.status(201).json({
+  res.status(200).json({
     status: "success",
     data: {
       user: getone,
@@ -44,17 +34,16 @@ const getNewAudio = catchAsync(async (req, res, next) => {
   });
 
   if (!getNew) {
-    return next(new AppError("No user found with that ID", 404));
+    return next(new AppError("No audio found", 404));
   }
 
-  res.status(201).json({
+  res.status(200).json({
     status: "success",
     data: getNew,
   });
 });
 
 module.exports = {
-  getAll,
   getAudio,
   getNewAudio,
 };

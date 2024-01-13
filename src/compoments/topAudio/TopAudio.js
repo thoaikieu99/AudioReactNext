@@ -8,10 +8,7 @@ const TopAudio = (props) => {
         title={props.title}
         className="thumb"
       >
-        <img
-          alt={props.title}
-          src="https://nettruyentr.com/images/comics/cuoc-song-thuong-ngay.jpg"
-        />
+        <img alt={props.title} src={`/image/${props.image}`} />
       </NavLink>
 
       <h3 className="title">

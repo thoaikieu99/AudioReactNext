@@ -2,15 +2,52 @@ import "./Navbar.scss";
 import logo from "./../../WhiteCut.png";
 import { Col, Container, Row } from "react-bootstrap";
 import ListTopAudio from "../topAudio/ListTopAudi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TheLoai from "../theLoai/theLoai";
 import { NavLink } from "react-router-dom";
+import {
+  getApiTopNam,
+  getApiTopNgay,
+  getApiTopThang,
+} from "../../services/apiServices";
 
 const NaBar = (props) => {
   const [actionTop, setActionTop] = useState("topNgay");
+  const [list, setList] = useState();
+  const [topNgay, setTopNgay] = useState();
+  const [topThang, setTopThang] = useState();
+  const [topNam, setTopNam] = useState();
   const hangeonclick = (ev) => {
     setActionTop(ev.target.getAttribute("name"));
   };
+
+  useEffect(() => {
+    const getApi = async () => {
+      const topDay = await getApiTopNgay();
+      setTopNgay(topDay);
+      const topM = await getApiTopThang();
+      setTopThang(topM);
+      const topY = await getApiTopNam();
+      setTopNam(topY);
+    };
+    getApi();
+  }, []);
+
+  useEffect(() => {
+    switch (actionTop) {
+      case "topNgay":
+        setList(topNgay);
+        break;
+      case "topThang":
+        setList(topThang);
+        break;
+      case "topNam":
+        setList(topNam);
+        break;
+      default:
+        setList(topNgay);
+    }
+  }, [actionTop, topNgay, topThang, topNam]);
 
   return (
     <div className="Nabar">
@@ -124,24 +161,24 @@ const NaBar = (props) => {
                   name="topNgay"
                   className={actionTop === "topNgay" ? "activer" : ""}
                 >
-                  Top ngay
+                  Top ngày
                 </Col>
                 <Col
                   name="topThang"
                   className={actionTop === "topThang" ? "activer" : ""}
                 >
-                  Top thang
+                  Top tháng
                 </Col>
                 <Col
                   name="topNam"
                   className={actionTop === "topNam" ? "activer" : ""}
                 >
-                  Top nam
+                  Top năm
                 </Col>
               </Row>
 
               <Row>
-                <ListTopAudio />
+                <ListTopAudio listTop={list} />
               </Row>
             </Col>
           </Row>
