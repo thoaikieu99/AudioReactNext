@@ -6,10 +6,13 @@ import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import store from "./store";
+import "nprogress/nprogress.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <App />
+    <div>
+      <App />
+    </div>
   </Provider>
 );
 

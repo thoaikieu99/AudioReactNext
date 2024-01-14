@@ -15,7 +15,9 @@ import Root from "./pages/Root";
 import MediaAudio from "./pages/MediaAudio";
 import TheLoai from "./pages/TheLoai";
 import LoadingBar from "react-top-loading-bar";
+
 import { counterActions } from "./store/counter";
+import RootListen from "./pages/RootListen";
 
 function App() {
   const router = createBrowserRouter([
@@ -47,7 +49,8 @@ function App() {
     },
     {
       path: "nghe-truyen/:slug",
-      element: <MediaAudio />,
+      element: <RootListen />,
+      children: [{ index: true, element: <MediaAudio /> }],
     },
   ]);
 
@@ -73,7 +76,9 @@ function App() {
         progress={count}
         onLoaderFinished={() => dispatch(counterActions.zero())}
       />
-      <RouterProvider router={router} />
+      <div>
+        <RouterProvider router={router} />
+      </div>
     </>
   );
 }

@@ -17,9 +17,9 @@ const TheLoai = () => {
 
   const ListAudio = theLoai?.map((value) => {
     return (
-      <Col md={6} lg={3} className="nomagrin" key={value.id}>
+      <Col md={6} lg={3} className="nomagrin" key={"theloai-" + value.id}>
         <NavLink
-          to={`the-loai/${value.slug}`}
+          to={`/the-loai/${value.slug}`}
           className="fill"
           title={value.name}
         >

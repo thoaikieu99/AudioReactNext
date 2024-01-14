@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react";
 import ListAudio from "../compoments/audio/ListAudio";
 
-import useAxios from "../customHook/useCusAxios";
+import { getApiNewAudio } from "../services/apiServices";
 
 const Home = () => {
   const [listAudio, setListAudio] = useState();
 
-  const { response } = useAxios({
-    method: "get",
-    url: "/audios/new",
-  });
-
   useEffect(() => {
-    if (response !== null) {
-      setListAudio(response.data);
-    }
-  }, [response]);
+    const get = async () => {
+      const getApi = await getApiNewAudio();
+
+      setListAudio(getApi.data);
+    };
+    get();
+  }, []);
 
   return (
     <>
