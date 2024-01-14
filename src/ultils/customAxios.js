@@ -1,6 +1,4 @@
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { counterActions } from "../store/counter";
 
 const instance = axios.create({
   baseURL: "http://localhost:4000/api/v1/",

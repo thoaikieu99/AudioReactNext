@@ -1,6 +1,6 @@
 import "./App.css";
 
-import Nabar from "./compoments/narbar/Nabar";
+// import Nabar from "./compoments/narbar/Nabar";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,7 +8,7 @@ import "bootstrap/dist/js/bootstrap";
 import Home from "./pages/Home";
 import { useDispatch, useSelector } from "react-redux";
 
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 import NgheNhieu from "./pages/NgheNhieu";
 import TuTruyen from "./pages/TuTruyen";
 import Root from "./pages/Root";
@@ -51,21 +51,21 @@ function App() {
     },
   ]);
 
-  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  // const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const count = useSelector((state) => state.counter.counter);
   const dispatch = useDispatch();
 
-  let pay = (
-    <Nabar>
-      <div style={{ maxWidth: 1100 }} className="container">
-        <RouterProvider router={router} />
-      </div>
-    </Nabar>
-  );
+  // let pay = (
+  //   <Nabar>
+  //     <div style={{ maxWidth: 1100 }} className="container">
+  //       <RouterProvider router={router} />
+  //     </div>
+  //   </Nabar>
+  // );
 
-  if (!isAuth) {
-    pay = <Login />;
-  }
+  // if (!isAuth) {
+  //   pay = <Login />;
+  // }
   return (
     <>
       <LoadingBar

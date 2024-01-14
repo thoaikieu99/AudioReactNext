@@ -23,6 +23,11 @@ const getApiNgheNhieu = () => {
 const getApiListTL = (slug) => {
   return axios.get(`categories/${slug}`);
 };
+
+const getOneAudio = (slug) => {
+  return axios.get(`audios/${slug}`);
+};
+
 export {
   getApiNewAudio,
   getApiTheLoai,
@@ -31,4 +36,5 @@ export {
   getApiTopNgay,
   getApiTopThang,
   getApiTopNam,
+  getOneAudio,
 };

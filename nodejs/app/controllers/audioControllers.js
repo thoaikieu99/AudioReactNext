@@ -1,6 +1,6 @@
 const { Audio } = require("../model");
 const catchAsync = require("../ultils/catchAsync");
-
+const AppError = require("../ultils/appErrors");
 const getOne = async (slug) => {
   let getOneAudio = await Audio.findOne({
     where: {
@@ -20,7 +20,7 @@ const getAudio = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      user: getone,
+      audio: getone,
     },
   });
 });

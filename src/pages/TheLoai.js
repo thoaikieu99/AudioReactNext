@@ -9,7 +9,7 @@ const TheLoai = () => {
 
   const [listAudio, setListAudio] = useState();
 
-  const { response, loading, error } = useAxios({
+  const { response } = useAxios({
     method: "get",
     url: `categories/${slug}`,
   });

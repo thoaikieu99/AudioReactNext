@@ -36,7 +36,7 @@ const addViews = catchAsync(async (req, res) => {
   }
 });
 
-const findView = async (dateFind) => {
+const findView = async (dateFind, limt = 12) => {
   let getNew = await CountView.findAndCountAll({
     where: {
       dateView: {
@@ -62,14 +62,14 @@ const findView = async (dateFind) => {
       },
     ],
     order: [["views_count", "desc"]],
-    limit: 12,
+    limit: limt,
   });
 
   return getNew;
 };
 
 const getAllView = catchAsync(async (req, res) => {
-  let getAll = await findView(datea);
+  let getAll = await findView(datea, 42);
 
   res.status(200).json({
     status: "success",

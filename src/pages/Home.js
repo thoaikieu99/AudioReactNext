@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import ListAudio from "../compoments/audio/ListAudio";
-import { getApiNewAudio } from "../services/apiServices";
+
 import useAxios from "../customHook/useCusAxios";
 
 const Home = () => {
   const [listAudio, setListAudio] = useState();
 
-  const { response, loading, error } = useAxios({
+  const { response } = useAxios({
     method: "get",
     url: "/audios/new",
   });
