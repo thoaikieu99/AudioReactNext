@@ -12,3 +12,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.pagination {
+  --bs-pagination-padding-x: 0.55em;
+  --bs-pagination-padding-y: 0.35em;
+  --bs-pagination-font-size: 1em;
+}

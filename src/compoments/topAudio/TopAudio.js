@@ -8,7 +8,7 @@ const TopAudio = (props) => {
         title={props.title}
         className="thumb"
       >
-        <img alt={props.title} src={`/image/${props.image}`} />
+        <img alt={props.title} src={`/rez/${props.image}`} />
       </NavLink>
 
       <h3 className="title">
@@ -18,7 +18,7 @@ const TopAudio = (props) => {
       </h3>
       <p className="chapter">
         <NavLink to={`nghe-truyen/${props.slug}`} title={props.title}>
-          {props.title}
+          Tap {props.sotap}
         </NavLink>
       </p>
     </div>

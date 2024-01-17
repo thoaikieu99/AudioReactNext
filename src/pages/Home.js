@@ -1,19 +1,30 @@
 import { useEffect, useState } from "react";
 import ListAudio from "../compoments/audio/ListAudio";
-
+import ReactPaginate from "react-paginate";
 import { getApiNewAudio } from "../services/apiServices";
+import { Col, Row } from "react-bootstrap";
+import "./Home.scss";
 
 const Home = () => {
   const [listAudio, setListAudio] = useState();
+  const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
-    const get = async () => {
-      const getApi = await getApiNewAudio();
-
-      setListAudio(getApi.data);
+    const ad = async () => {
+      let cou = await get();
+      setPageCount(Math.ceil(cou / 42));
     };
-    get();
+    ad();
   }, []);
+  const get = async (page = 0) => {
+    const getApi = await getApiNewAudio(page);
+
+    setListAudio(getApi.data);
+    return getApi.data.count;
+  };
+  const handlePageClick = (event) => {
+    get(event.selected);
+  };
 
   return (
     <>
@@ -21,6 +32,30 @@ const Home = () => {
         <h3 className="page-title">Truyện mới cập nhật</h3>
       </div>
       <ListAudio onList={listAudio?.rows} />
+      <Row className="justify-content-md-center">
+        <Col md="auto abc">
+          <ReactPaginate
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={1}
+            pageCount={pageCount}
+            previousLabel="<"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            containerClassName="pagination"
+            activeClassName="active"
+            renderOnZeroPageCount={null}
+          />
+        </Col>
+      </Row>
     </>
   );
 };

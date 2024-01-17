@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { counterActions } from "../store/counter";
 
-axios.defaults.baseURL = "http://localhost:4000/api/v1/";
+axios.defaults.baseURL = "https://kianai99.io.vn/api/v1";
 
 const useAxios = ({ url, method, body = null, headers = null }) => {
   const dispatch = useDispatch();

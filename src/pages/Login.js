@@ -5,10 +5,10 @@ const Login = () => {
   let passWord = null;
   if (!isLogin) {
     passWord = (
-      <div class="form-group mb-4">
+      <div className="form-group mb-4">
         <input
           type="password"
-          class="form-control password"
+          className="form-control password"
           id="password"
           placeholder="Xác nhận mật khẩu..."
           name="password"
@@ -22,7 +22,7 @@ const Login = () => {
   };
   return (
     <>
-      <div class="d-flex vh-100 justify-content-center align-items-center bg-primary p-2 bg-opacity-25">
+      <div className="d-flex vh-100 justify-content-center align-items-center bg-primary p-2 bg-opacity-25">
         <div className=" col-10 col-sm-7 col-md-6  login rounded-4 shadow-lg bg-body ">
           <form className="form-example " action="" method="post">
             <h1 className="mb-4 text-center">

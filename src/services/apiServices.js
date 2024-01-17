@@ -1,7 +1,7 @@
 import axios from "../ultils/customAxios";
 
-const getApiNewAudio = () => {
-  return axios.get("audios/new");
+const getApiNewAudio = (page) => {
+  return axios.get(`audios/new?page=${+page}`);
 };
 
 const getApiTheLoai = () => {
@@ -16,12 +16,12 @@ const getApiTopThang = () => {
 const getApiTopNam = () => {
   return axios.get("countviews/top-year");
 };
-const getApiNgheNhieu = () => {
-  return axios.get("countviews/nghe-nhieu");
+const getApiNgheNhieu = (page) => {
+  return axios.get(`countviews/nghe-nhieu?page=${+page}`);
 };
 
-const getApiListTL = (slug) => {
-  return axios.get(`categories/${slug}`);
+const getApiListTL = (slug, page) => {
+  return axios.get(`categories/${slug}?page=${+page}`);
 };
 
 const getOneAudio = (slug) => {

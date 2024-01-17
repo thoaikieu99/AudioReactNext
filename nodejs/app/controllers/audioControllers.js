@@ -26,11 +26,12 @@ const getAudio = catchAsync(async (req, res, next) => {
 });
 
 const getNewAudio = catchAsync(async (req, res, next) => {
+  let page = req?.query?.page ? req.query.page : 0;
   let getNew = await Audio.findAndCountAll({
     order: [["date", "ASC"]],
     attributes: ["slug", "title", "content", "trang_thai", "sotap", "image"],
     limit: 42,
-    offset: 42 * 1,
+    offset: 42 * page,
   });
 
   if (!getNew) {

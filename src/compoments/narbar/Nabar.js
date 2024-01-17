@@ -96,12 +96,29 @@ const NaBar = (props) => {
         </nav>
       </div>
       <div
+        className="hei"
         style={{
           paddingTop: "5rem",
           alignContent: "center",
         }}
       >
         {props.children}
+      </div>
+      <link
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+      />
+      <div className="footer">
+        <div className="container">
+          <div className="row text-center">
+            <div className="col-lg-12 col-sm-12 col-xs-12">
+              <div className="footer_menu"></div>
+              <div className="footer_copyright">
+                <p>Made with by Kianai</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

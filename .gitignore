@@ -14,7 +14,7 @@
 
 # production
 /build
-image
+rez/*
 
 # misc
 .DS_Store

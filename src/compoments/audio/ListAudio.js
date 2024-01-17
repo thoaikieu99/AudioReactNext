@@ -13,10 +13,16 @@ const ListAudio = (props) => {
     }
     return (
       <div
-        className="col-6 col-xs-4 col-sm-3 col-lg-2 col-md-3 cardAudio"
+        className="col-6 col-sm-3 col-lg-2 col-md-4 cardAudio"
         key={`audio-${index}`}
       >
-        <Audio slug={audio.slug} image={`${audio.image}`} title={audio.title} />
+        <Audio
+          slug={audio.slug}
+          image={`${audio.image}`}
+          sotap={audio.sotap}
+          title={audio.title}
+          content={audio.content}
+        />
       </div>
     );
   });

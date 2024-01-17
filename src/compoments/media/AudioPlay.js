@@ -96,12 +96,14 @@ const AudioPlay = (props) => {
   });
 
   const loaded = () => {
-    let audio = buttonRef.current.audio.current;
-    audio.playbackRate = speed;
-    if (isclick) {
-      setIsclick(true);
-      audio.currentTime = parseInt(cookieTime);
-      audio.play();
+    let audio = buttonRef?.current?.audio?.current;
+    if (audio) {
+      audio.playbackRate = speed;
+      if (isclick) {
+        setIsclick(true);
+        audio.currentTime = parseInt(cookieTime);
+        audio?.play();
+      }
     }
   };
 
@@ -132,7 +134,7 @@ const AudioPlay = (props) => {
             step={0.1}
             value={speed}
             onChange={(e) => setSpeed(e.target.value)}
-            style={{ width: "90%" }}
+            style={{ width: "calc(100% - 36px)" }}
           />
           <span> {speed}x</span>
         </>

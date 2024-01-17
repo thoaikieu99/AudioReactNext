@@ -6,7 +6,7 @@ const Root = () => {
   return (
     <NaBar>
       <NarTopList>
-        <div style={{ maxWidth: 1100 }} className="container ">
+        <div style={{ maxWidth: "800px" }} className="container ">
           <Outlet />
         </div>
       </NarTopList>

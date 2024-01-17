@@ -7,7 +7,7 @@ nProgress.configure({
 });
 
 const instance = axios.create({
-  baseURL: "http://localhost:4000/api/v1/",
+  baseURL: "https://kianai99.io.vn/api/v1",
 });
 
 instance.interceptors.request.use(

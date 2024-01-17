@@ -25,6 +25,7 @@ const getShow = catchAsync(async (req, res) => {
 
 const getSlugAudio = catchAsync(async (req, res, next) => {
   let slug = req.params.slug;
+  let page = req?.query?.page ? req.query.page : 0;
   const get = await getOne(slug);
   if (!get) {
     return next(new AppError("Khong tim duoc the loai", 404));
@@ -37,7 +38,7 @@ const getSlugAudio = catchAsync(async (req, res, next) => {
     attributes: ["slug", "title", "content", "trang_thai", "sotap", "image"],
     order: [["id", "ASC"]],
     limit: 42,
-    offset: 42 * 0,
+    offset: 42 * page,
   });
 
   res.status(200).json({
