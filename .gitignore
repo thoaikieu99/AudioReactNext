@@ -7,14 +7,14 @@
 
 /nodejs/config.env
 /nodejs/node_modules
-
+/build
+/public/rez
 
 # testing
 /coverage
 
 # production
-/build
-rez/*
+
 
 # misc
 .DS_Store
