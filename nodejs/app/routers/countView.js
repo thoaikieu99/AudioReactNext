@@ -9,7 +9,7 @@ const {
 
 const countviewRouter = express.Router();
 
-countviewRouter.get("/add", addViews);
+countviewRouter.post("/add", addViews);
 countviewRouter.get("/top-day", getDayViews);
 countviewRouter.get("/top-month", getMonthView);
 countviewRouter.get("/top-year", getYearView);

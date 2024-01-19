@@ -8,7 +8,7 @@
 /nodejs/config.env
 /nodejs/node_modules
 /build
-/public/rez
+
 rez
 # testing
 /coverage

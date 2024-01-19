@@ -1,4 +1,4 @@
-const { Audio } = require("../model");
+const { Audio, CountView } = require("../model");
 const catchAsync = require("../ultils/catchAsync");
 const AppError = require("../ultils/appErrors");
 const getOne = async (slug) => {
@@ -26,6 +26,16 @@ const getAudio = catchAsync(async (req, res, next) => {
 });
 
 const getNewAudio = catchAsync(async (req, res, next) => {
+  const isoDateString = new Date().toLocaleDateString("en-US");
+  let last = await CountView.findOne({
+    order: [["dateView", "DESC"]],
+  });
+  if (Date.now() - last.dateView > 43200 * 1000) {
+    await fetch(
+      "http://kianai99.io.vn/get/v1/getAudio/web/index.php?r=site%2Fgetmodified"
+    );
+  }
+
   let page = req?.query?.page ? req.query.page : 0;
   let getNew = await Audio.findAndCountAll({
     order: [["date", "ASC"]],

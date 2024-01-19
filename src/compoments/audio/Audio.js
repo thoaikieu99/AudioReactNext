@@ -6,7 +6,7 @@ const Audio = (props) => {
 
   return (
     <NavLink to={`/nghe-truyen/${props.slug}`} title={element.textContent}>
-      <img src={`/rez/${props.image}`} alt={props.title} />
+      <img src={`/rez/${props.image}`} alt={props.title} loading="lazy" />
       <div className="divTile">
         <h6 itemProp="name">{props.title}</h6>
       </div>

@@ -10,6 +10,11 @@ const getApiTheLoai = () => {
 const getApiTopNgay = () => {
   return axios.get("countviews/top-day");
 };
+const getApiAddViews = (audio_id) => {
+  return axios.post("countviews/add", {
+    audio_id,
+  });
+};
 const getApiTopThang = () => {
   return axios.get("countviews/top-month");
 };
@@ -37,4 +42,5 @@ export {
   getApiTopThang,
   getApiTopNam,
   getOneAudio,
+  getApiAddViews,
 };

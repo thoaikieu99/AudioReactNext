@@ -6,6 +6,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import { Container, Row } from "react-bootstrap";
 import { useCookies } from "react-cookie";
+import { getApiAddViews } from "../../services/apiServices";
 
 const AudioPlay = (props) => {
   const STARTTIME = "startime-" + props.audio.id;
@@ -54,6 +55,13 @@ const AudioPlay = (props) => {
   }, [buttonRef, speed]);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      getApiAddViews(props.audio.id);
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [props.audio.id]);
+
+  useEffect(() => {
     const collection = document.getElementsByClassName("audio active");
     collection[0].scrollIntoView(false);
   }, [currentTrack]);
@@ -97,10 +105,11 @@ const AudioPlay = (props) => {
 
   const loaded = () => {
     let audio = buttonRef?.current?.audio?.current;
+    console.log("aa");
     if (audio) {
       audio.playbackRate = speed;
       if (isclick) {
-        setIsclick(true);
+        setIsclick(false);
         audio.currentTime = parseInt(cookieTime);
         audio?.play();
       }
@@ -109,13 +118,26 @@ const AudioPlay = (props) => {
 
   const ngheTiepClick = () => {
     setIsclick(true);
+
     setTrackIndex(cookieIndex);
+    if (cookieIndex === currentTrack) {
+      let audio = buttonRef?.current?.audio?.current;
+      audio.currentTime = parseInt(cookieTime);
+    }
     setSpeed(cookieSpeed);
+  };
+  const connPlay = () => {
+    console.log("aplay");
+  };
+  const connPause = () => {
+    console.log("apau");
   };
   const ll = (
     <AudioPlayer
       header={<h3 style={{ textAlign: "center" }}>{props.audio.title}</h3>}
       src={playlist[currentTrack]}
+      onPlay={connPlay}
+      onPause={connPause}
       showSkipControls
       customAdditionalControls={[]}
       customVolumeControls={[]}

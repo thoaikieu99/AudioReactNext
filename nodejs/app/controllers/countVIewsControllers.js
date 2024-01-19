@@ -34,6 +34,9 @@ const addViews = catchAsync(async (req, res) => {
       views: getoOne.views + 1,
     });
   }
+  res.status(200).json({
+    status: "success",
+  });
 });
 
 const findView = async (dateFind, limt = 12, page = 0) => {
